@@ -1,0 +1,123 @@
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 40px;
+    font-size: 2.5em;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 1.1em;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin-top: 10px;
+    box-sizing: border-box;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+/* Submit button styled like the Create Chat button */
+.submit-btn {
+    background-color: #007bff; /* Blue color */
+    padding: 15px 30px;
+    font-size: 1.2em;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    opacity: 0.8;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    h1 {
+        font-size: 2.2em;
+    }
+
+    .submit-btn {
+        padding: 12px 24px;
+        font-size: 1.1em;
+    }
+}
+
+@media (max-width: 992px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    .submit-btn {
+        padding: 10px 20px;
+        font-size: 1.05em;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.8em;
+    }
+
+    .submit-btn {
+        padding: 10px 20px;
+        font-size: 1.1em;
+    }
+}
+
+@media (max-width: 576px) {
+    h1 {
+        font-size: 1.5em;
+    }
+
+    input[type="text"] {
+        padding: 8px;
+        font-size: 1em;
+    }
+
+    .submit-btn {
+        padding: 15px 30px;
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 400px) {
+    h1 {
+        font-size: 1.3em;
+    }
+
+    .submit-btn {
+        padding: 14px 28px;
+        font-size: 1.1em;
+    }
+}

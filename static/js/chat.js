@@ -1,9 +1,24 @@
 document.addEventListener("DOMContentLoaded", () => {
     const urlParts = document.URL.split("/");
-    const roomName = urlParts.at(-1);
+    const roomString = urlParts.at(-1);;
+    const roomName = roomString.split('=')[1];
     const username = prompt("Enter your username. (no spaces)");
 
-    const socket = new WebSocket(`wss://03acef41-7d6e-44e6-9cbc-e40de73e0b7f-00-yfjhqydzgoaj.riker.replit.dev/chat/${roomName}`);
+    const socket = new WebSocket(
+        `wss://29d9e1b2-f765-4e35-b65c-5ce0d5cd4349-00-3d741o3x7tk7m.picard.replit.dev/chat/${roomName}`,
+    );
+
+    const userColors = {}; // Store user colors here
+
+    // Function to generate a random color
+    function getRandomColor() {
+        const letters = '0123456789ABCDEF';
+        let color = '#';
+        for (let i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
 
     socket.onopen = (evt) => {
         console.log("Web Socket opened");
@@ -15,16 +30,21 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log("New Message", evt);
         let msg = JSON.parse(evt.data);
         if (msg.type === "note") {
-            const item = document.createElement('li');
-            const text = document.createElement('i');
+            const item = document.createElement("li");
+            const text = document.createElement("i");
             item.classList.add("join");
             text.textContent = msg.text;
             item.appendChild(text);
-            document.querySelector('#messages').appendChild(item);
+            document.querySelector("#messages").appendChild(item);
         } else if (msg.type === "chat") {
-            const item = document.createElement('li');
+            const item = document.createElement("li");
+            if (!userColors[msg.name]) {
+                userColors[msg.name] = getRandomColor();
+            }
+            item.style.backgroundColor = userColors[msg.name];
+            item.style.color = "#fff";
             item.innerHTML = `<b>${msg.name}:</b> ${msg.text}`;
-            document.querySelector('#messages').appendChild(item);
+            document.querySelector("#messages").appendChild(item);
         }
     };
 
@@ -38,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     document.querySelector("#msg-form").addEventListener("submit", (evt) => {
-        const input = document.querySelector('#msg-input');
+        const input = document.querySelector("#msg-input");
         evt.preventDefault();
         const payload = JSON.stringify({ type: "chat", text: input.value });
         socket.send(payload);

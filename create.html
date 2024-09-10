@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Create Chat</title>
+        <link rel="stylesheet" href="/css/create" />
+        <!-- Link to your CSS file -->
+    </head>
+    <body>
+        <div class="container">
+            <h1>Create a Chat Room</h1>
+            <form id="create-chat-form">
+                <div class="form-group">
+                    <label for="room-name">Enter Room Name</label>
+                    <input
+                        type="text"
+                        id="room-name"
+                        name="room"
+                        placeholder="Room Name"
+                        required
+                    />
+                </div>
+                <button
+                    id="submit"
+                    type="submit"
+                    class="btn submit-btn"
+                >
+                    Create Room
+                </button>
+                <p id="create-room-message"></p>
+            </form>
+        </div>
+        <script src="/js/create"></script>
+    </body>
+</html>

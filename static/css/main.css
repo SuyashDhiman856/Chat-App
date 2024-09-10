@@ -1,0 +1,142 @@
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 40px;
+    font-size: 2.5em;
+    color: #333;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    text-decoration: none;
+    color: white;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.join-btn {
+    background-color: #007bff;
+    /* Blue color for Join Chat */
+}
+
+.create-btn {
+    background-color: #28a745;
+    /* Green color for Create Chat */
+}
+
+.btn i {
+    font-size: 1.5em;
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
+
+/* Make it responsive */
+@media (max-width: 1200px) {
+    h1 {
+        font-size: 2.2em;
+    }
+
+    .btn {
+        padding: 12px 24px;
+        font-size: 1.1em;
+    }
+}
+
+@media (max-width: 992px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 1.05em;
+    }
+
+    .button-container {
+        gap: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.8em;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 1.1em;
+    }
+
+    .button-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    h1 {
+        font-size: 1.5em;
+    }
+
+    .btn {
+        padding: 15px 30px;
+        /* Increased padding for mobile */
+        font-size: 1.3em;
+        /* Slightly larger font size for mobile */
+    }
+
+    .btn i {
+        font-size: 1.6em;
+        /* Increased icon size */
+    }
+}
+
+@media (max-width: 400px) {
+    h1 {
+        font-size: 1.3em;
+    }
+
+    .btn {
+        padding: 14px 28px;
+        /* Slightly reduced padding for very small screens */
+        font-size: 1.2em;
+    }
+
+    .btn i {
+        font-size: 1.5em;
+        /* Adjusted icon size */
+    }
+}
