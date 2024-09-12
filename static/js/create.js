@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     const createForm = document.getElementById("create-chat-form");
     const messageElement = document.getElementById("create-room-message");
+    const user = document.getElementById("user-name");
 
     createForm.addEventListener("submit", async function (event) {
         event.preventDefault();
@@ -8,14 +9,15 @@ document.addEventListener("DOMContentLoaded", function () {
         const roomName = document.getElementById("room-name").value.trim();
 
         if (roomName) {
+            localStorage.setItem("userName", user.value);
             try {
                 // Create the room
-                const response = await fetch('/create-room', {
-                    method: 'POST',
+                const response = await fetch("/create-room", {
+                    method: "POST",
                     headers: {
-                        'Content-Type': 'application/json'
+                        "Content-Type": "application/json",
                     },
-                    body: JSON.stringify({ roomName })
+                    body: JSON.stringify({ roomName }),
                 });
 
                 const data = await response.json();
@@ -26,10 +28,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 } else {
                     // Show error message if room creation fails
                     messageElement.textContent = data.error;
-                    messageElement.style.color = 'red';
+                    messageElement.style.color = "red";
                 }
             } catch (error) {
-                console.error('Error:', error);
+                console.error("Error:", error);
             }
         }
     });

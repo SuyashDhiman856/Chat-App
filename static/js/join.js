@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("join-chat-form");
     const input = document.getElementById("room-name");
+    const user = document.getElementById("user-name");
     const messageElement = document.getElementById("join-room-message");
 
     form.addEventListener("submit", async function (event) {
@@ -8,7 +9,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const roomName = input.value.trim(); // Get and trim the room name
 
-        if (roomName) {
+        if (roomName && user) {
+            localStorage.setItem("userName", user.value);
             try {
                 // Check if the room exists
                 const response = await fetch("/check-room", {
