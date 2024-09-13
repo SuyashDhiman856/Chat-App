@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const username = localStorage.getItem("userName");
 
     const socket = new WebSocket(
-        `wss://roomlink.site/chat/${roomName}`,
+        `wss://room-link.onrender.com/chat/${roomName}`,
     );
 
     const userColors = {}; // Store user colors here
